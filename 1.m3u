@@ -1,0 +1,51 @@
+#EXTM3U
+#EXTINF:-1 group-title="Bez grupy",︾︾︾︾「Aktualizacja 27.09.2026」︾︾︾︾
+https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8
+#EXTINF:-1 tvg-id="Polsat.pl" tvg-logo="https://i.imgur.com/xff6zGN_d.webp?maxwidth=760&fidelity=grand" group-title="Ogólne",Polsat
+https://cdn-s-playnow-live.pluscdn.pl/ch/1502600/308/dash/20a18c30/live.mpd
+#EXTINF:-1 tvg-id="TVPuls.pl" tvg-logo="https://i.imgur.com/gXA7pai.png" group-title="Ogólne",TV Puls
+https://edge01.cdn.emitel.pl/bpk-tv/Puls_HD/hbbtv-hls/index.m3u8
+#EXTINF:-1 tvg-id="TVPuls.pl" tvg-logo="https://i.imgur.com/gXA7pai.png" group-title="Ogólne",TV Puls [Lowa]
+https://lowa8026-cmyk.github.io/PL/PULSHD.php.m3u8
+#EXTINF:-1 tvg-id="Puls2.pl" tvg-logo="https://i.imgur.com/EOnzPiZ.png" group-title="Ogólne",Puls2
+https://edge01.cdn.emitel.pl/bpk-tv/Puls2_HD/hbbtv-hls/index.m3u8
+#EXTINF:-1 tvg-id="4FunTV.pl" tvg-logo="https://i.imgur.com/rI1wo2l.png" group-title="Muzyka",4FUN TV
+https://stream.4fun.tv:8888/hls/4f.m3u8
+#EXTINF:-1 tvg-id="4FunKids.pl" tvg-logo="https://i.imgur.com/2JO5Y8c.png" group-title="Muzyka",4FUN KIDS
+https://stream.4fun.tv:8889/hls/4fk_high/index.m3u8
+#EXTINF:-1 tvg-id="DiscoPoloMusic.pl" tvg-logo="https://i.imgur.com/ZZbuTv7.png" group-title="Muzyka",Disco Polo Music
+http://185.227.34.179:8080/disco-polo-music/index.m3u8
+#EXTINF:-1 group-title="Bez grupy",︾︾︾︾「​🇮​​🇳​​🇹​​🇪​​🇷​​🇳​​🇪​​🇹​​🇴​​🇼​​🇦​ ​🇵​​🇱​」︾︾︾︾
+https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8
+#EXTINF:-1 tvg-logo="https://1000logos.net/wp-content/uploads/2020/08/Jetix-Logo.png" group-title="Dzieci",Jetix PL [GIATV Playlist]
+https://live20.bozztv.com/giatvplayout7/giatv-211388/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-logo="https://media.discordapp.net/attachments/1533134366471884841/1533134366719479941/Untitled78_20260801172739.png?ex=6ab9dee5&is=6ab88d65&hm=e024ec29bd069734f5ad61f32a30dac020c2a96c0a5e19c5c877799a488f94aa&=&format=webp&quality=lossless&width=1024&height=1024" group-title="Ogólne",LogiTV [GIATV Live]
+https://183.bozztv.com/giatv/giatv-logitv/logitv/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://media.discordapp.net/attachments/1533134366471884841/1533134366719479941/Untitled78_20260801172739.png?ex=6ab9dee5&is=6ab88d65&hm=e024ec29bd069734f5ad61f32a30dac020c2a96c0a5e19c5c877799a488f94aa&=&format=webp&quality=lossless&width=1024&height=1024" group-title="Ogólne",LogiTV [Popler Live]
+https://edge9.popler.tv/popler_publishlive2/braknazwy987/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://media.discordapp.net/attachments/1533134366471884841/1533134366719479941/Untitled78_20260801172739.png?ex=6ab9dee5&is=6ab88d65&hm=e024ec29bd069734f5ad61f32a30dac020c2a96c0a5e19c5c877799a488f94aa&=&format=webp&quality=lossless&width=1024&height=1024" group-title="Ogólne",LogiTV [GIA Playlist]
+https://live20.bozztv.com/giatvplayout7/giatv-211832/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-id="ATMRozrywka.pl" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_lEFqH0mhoe9xuA-3EPNciatDPATUUKEv-oCtlBOHYXsg=s900-c-k-c0x00ffffff-no-rj" group-title="Ogólne",ATM Rozrywka REWORK
+https://grupaatmrr.org.pl:8888/fallback/index.m3u8
+#EXTINF:-1 group-title="Bez grupy",RB
+https://e500714.omni.pl/RBTV/video.m3u8
+#EXTINF:-1 group-title="Bez grupy",snap
+http://149.86.227.134:47301/73601/index.m3u8
+#EXTINF:-1 group-title="Bez grupy",Kino Central
+https://lbgo.bozztv.com/ssh101/ssh101/grupakc/playlist.m3u8
+#EXTINF:-1 group-title="Bez grupy",up!tv
+https://live.omni3.pl/22016/index.m3u8
+#EXTINF:-1 group-title="Bez grupy",ICTV
+https://e500714.omni.pl/ICTV/video.m3u8
+#EXTINF:-1 group-title="Bez grupy",M!X TV
+http://149.86.227.134:43001/stream_01a03ec0-cacf-76b5-a350-b6e0fb3220e4/master_avc.m3u8
+#EXTINF:-1 group-title="Bez grupy",IdeaBox
+https://e500714.omni.pl/IdeaBox/index.m3u8
+#EXTINF:-1 group-title="Bez grupy",Nova
+https://e500714.omni.pl/Nova/video.m3u8
+#EXTINF:-1 group-title="Bez grupy",︾︾︾︾「​🇮​​🇳​​🇹​​🇪​​🇷​​🇳​​🇪​​🇹​​🇴​​🇼​​🇪​ ​🇷​​🇦​​🇩​​🇮​​🇴​」︾︾︾︾
+https://hls-harbor-livepush.akamaized.net/live_cdn/nsqIStpj8PaG-Ev/emcQJ0pGpremocy/index.m3u8
+#EXTINF:-1 group-title="Radio",Fonia 9
+http://57.128.247.214:8000/128.mp3
+#EXTINF:-1 group-title="Radio",Darknite FM
+https://fm.darknite.pl/fm.mp3

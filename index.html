@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a1a1a">
+  <title>IPTV Player — Metro UI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- VIDEO PLAYER -->
+    <div id="player-container">
+      <video id="video" playsinline webkit-playsinline></video>
+      <canvas id="visualizer" width="1280" height="720"></canvas>
+      <div id="radio-overlay" class="hidden">
+        <div id="radio-logo" class="radio-logo placeholder"></div>
+        <div class="radio-marquee-wrap">
+          <div id="radio-marquee" class="radio-marquee">Radio</div>
+        </div>
+      </div>
+      <div id="error-overlay" class="hidden">
+        <div class="error-ticker-wrap">
+          <div class="error-ticker" id="error-text">BRAK SYGNAŁU</div>
+        </div>
+      </div>
+      <div id="loader" class="hidden">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Windows-loading-cargando.gif" alt="" width="48" height="48">
+      </div>
+      <div id="channel-transition" class="hidden"></div>
+    </div>
+
+    <!-- OSD (channel info bar) -->
+    <div id="osd" class="hidden">
+      <div class="osd-left">
+        <span id="osd-number">—</span>
+        <div id="osd-logo" class="channel-logo placeholder"></div>
+        <div class="osd-meta">
+          <span id="osd-name">—</span>
+          <div class="osd-epg">
+            <div id="osd-now" class="epg-now"></div>
+            <div id="osd-next" class="epg-next"></div>
+            <div class="epg-progress-wrap"><div id="osd-progress" class="epg-progress"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="osd-clock">
+        <span id="osd-time">00:00:00</span>
+        <span id="osd-date">01.01.1970</span>
+      </div>
+    </div>
+
+    <!-- CHANNEL NUMBER INPUT OVERLAY -->
+    <div id="channel-input" class="hidden">
+      <span id="channel-input-value"></span>
+    </div>
+
+    <!-- MAIN MENU (Metro tiles) -->
+    <div id="menu" class="panel hidden">
+      <div class="panel-header">Menu</div>
+      <div class="tiles" id="menu-tiles">
+        <div class="tile" data-action="channels" tabindex="-1"><div class="tile-icon channels-icon"></div><div class="tile-label">Kanały</div></div>
+        <div class="tile" data-action="favorites" tabindex="-1"><div class="tile-icon fav-icon"></div><div class="tile-label">Ulubione</div></div>
+        <div class="tile" data-action="playlists" tabindex="-1"><div class="tile-icon list-icon"></div><div class="tile-label">Playlisty</div></div>
+        <div class="tile" data-action="epg" tabindex="-1"><div class="tile-icon epg-icon"></div><div class="tile-label">EPG</div></div>
+        <div class="tile" data-action="settings" tabindex="-1"><div class="tile-icon settings-icon"></div><div class="tile-label">Ustawienia</div></div>
+        <div class="tile" data-action="audio" tabindex="-1"><div class="tile-icon audio-icon"></div><div class="tile-label">Audio/Radio</div></div>
+        <div class="tile" data-action="fullscreen" tabindex="-1"><div class="tile-icon fs-icon"></div><div class="tile-label">Pełny ekran</div></div>
+        <div class="tile" data-action="about" tabindex="-1"><div class="tile-icon info-icon"></div><div class="tile-label">Informacje</div></div>
+      </div>
+    </div>
+
+    <!-- CHANNEL LIST -->
+    <div id="channel-list" class="panel hidden">
+      <div class="panel-header">
+        <span id="channel-list-title">Kanały</span>
+        <div class="group-tabs" id="group-tabs"></div>
+      </div>
+      <div class="channel-list-scroll" id="channel-list-scroll">
+        <div id="channel-list-items"></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="settings" class="panel hidden">
+      <div class="panel-header">Ustawienia</div>
+      <div class="settings-content" id="settings-content"></div>
+    </div>
+
+    <!-- PLAYLIST SETTINGS -->
+    <div id="playlist-settings" class="panel hidden">
+      <div class="panel-header">Ustaw playlistę M3U</div>
+      <div class="playlist-tabs">
+        <button class="metro-btn active" data-tab="url" tabindex="-1">URL</button>
+        <button class="metro-btn" data-tab="paste" tabindex="-1">Wklej</button>
+        <button class="metro-btn" data-tab="file" tabindex="-1">Plik</button>
+      </div>
+      <div class="playlist-pane active" id="pane-url">
+        <label>URL playlisty M3U</label>
+        <input type="text" id="playlist-url" placeholder="https://example.com/playlist.m3u" tabindex="-1">
+        <button class="metro-btn primary" data-action="save-url" tabindex="-1">Zapisz zmiany</button>
+      </div>
+      <div class="playlist-pane" id="pane-paste">
+        <label>Wklej zawartość M3U</label>
+        <textarea id="playlist-paste" placeholder="#EXTM3U&#10;..." tabindex="-1"></textarea>
+        <button class="metro-btn primary" data-action="save-paste" tabindex="-1">Zapisz</button>
+      </div>
+      <div class="playlist-pane" id="pane-file">
+        <label>Wybierz plik .m3u / .m3u8</label>
+        <input type="file" id="playlist-file" accept=".m3u,.m3u8,audio/x-mpegurl,application/vnd.apple.mpegurl" tabindex="-1">
+        <button class="metro-btn primary" data-action="save-file" tabindex="-1">Wczytaj plik</button>
+      </div>
+      <button class="metro-btn danger" data-action="clear-playlist" tabindex="-1">Usuń zapisaną playlistę</button>
+    </div>
+
+    <!-- EPG SCREEN -->
+    <div id="epg-screen" class="panel hidden">
+      <div class="panel-header">Program TV</div>
+      <div id="epg-content" class="epg-content"></div>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="panel hidden">
+      <div class="panel-header">Informacje</div>
+      <div class="about-content">
+        <h2>IPTV Player Metro</h2>
+        <p>Odtwarzacz IPTV z interfejsem Metro UI</p>
+        <p>Zoptymalizowany pod Smart TV i pilota</p>
+        <p>Wersja 1.0</p>
+        <button class="metro-btn" data-action="close-about" tabindex="-1">Zamknij</button>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTICS -->
+    <div id="diagnostics" class="hidden">
+      <pre id="diag-content"></pre>
+    </div>
+
+    <!-- FIRST RUN / EMPTY STATE -->
+    <div id="empty-state" class="panel hidden">
+      <div class="empty-content">
+        <div class="empty-icon"></div>
+        <h1>IPTV Player</h1>
+        <p>Brak playlisty. Wczytaj plik M3U, aby rozpocząć.</p>
+        <button class="metro-btn primary" data-action="open-playlist" tabindex="0">Ustaw playlistę M3U</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/settings.js"></script>
+  <script src="js/playlist.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/epg.js"></script>
+  <script src="js/remote.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
